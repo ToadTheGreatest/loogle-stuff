@@ -27,6 +27,7 @@ let date = document.createElement("h3");
 let hour;
 let time;
 let minute;
+let started = false;
 function rand(x) {
 	return Math.floor(Math.random() * x);
 }
@@ -141,6 +142,7 @@ function start() {
 		reload();
 		new Audio("data/3.mp3").play();
 	});
+	started = true;
 }
 function reload() {
 	let thing = new Date();
@@ -221,28 +223,30 @@ function dark() {
 	});
 }
 setInterval(() => {
-	if (mute) {
-		music.forEach((x) => {x.volume = 0;});
-		document.getElementById("mute").innerHTML="UNMUTE MUSIC";
-	} else {
-		music.forEach((x) => {x.volume = 1;});
-		document.getElementById("mute").innerHTML="MUTE MUSIC";
-	}
-	if (document.body.classList[0] == "dark") {
-		document.getElementById("dark").innerHTML="DISABLE DARK MODE";
-		document.getElementsByClassName("reload")[1].src="data/rdark.png";
-	} else {
-		document.getElementById("dark").innerHTML="ENABLE DARK MODE";
-		document.getElementsByClassName("reload")[1].src="data/rlight.png";
-	}
-	if (secret == 1) {
-		document.querySelectorAll("*").forEach((x) => {
-			x.style.fontFamily="secret";
-		});
-	} else {
-		document.querySelectorAll("*").forEach((x) => {
-			x.style.fontFamily="font";
-		});
+	if (started) {
+		if (mute) {
+			music.forEach((x) => {x.volume = 0;});
+			document.getElementById("mute").innerHTML="UNMUTE MUSIC";
+		} else {
+			music.forEach((x) => {x.volume = 1;});
+			document.getElementById("mute").innerHTML="MUTE MUSIC";
+		}
+		if (document.body.classList[0] == "dark") {
+			document.getElementById("dark").innerHTML="DISABLE DARK MODE";
+			document.getElementsByClassName("reload")[1].src="data/rdark.png";
+		} else {
+			document.getElementById("dark").innerHTML="ENABLE DARK MODE";
+			document.getElementsByClassName("reload")[1].src="data/rlight.png";
+		}
+		if (secret == 1) {
+			document.querySelectorAll("*").forEach((x) => {
+				x.style.fontFamily="secret";
+			});
+		} else {
+			document.querySelectorAll("*").forEach((x) => {
+				x.style.fontFamily="font";
+			});
+		}
 	}
 },10);
 const links = ["https://www.youtube.com/watch?v=zQEP6kzuroI","https://www.youtube.com/watch?v=0EzhcY10f_E","data/prsecret.html","data/uhssarus.html"];
