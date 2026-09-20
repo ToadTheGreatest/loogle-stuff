@@ -1,0 +1,134 @@
+@font-face {
+	font-family: font;
+	src: url(font.ttf);
+}
+@font-face {
+	font-family: secret;
+	src: url(secret.ttf);
+}
+@keyframes rotate {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
+}
+* {
+	font-family: font;
+	text-align: center;
+	margin: 10px;
+}
+@keyframes tilt {
+	from {transform: translate(-50%, -50%)  rotate(-10deg);}
+	to {transform: translate(-50%, -50%)  rotate(10deg);}
+}
+#prsecret {
+	text-align: justify;
+}
+#potatorat.hidden {
+	display: none;
+}
+#potatorat.showing {
+	display: inline;
+	position: fixed;
+	z-index: 10;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: tilt 1s infinite ease-in-out alternate;
+}
+.google {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+i {
+	margin: 0;
+}
+button {
+	outline: 3px red;
+	border-radius: 10px;
+	border: 2px solid #8e8e8e;
+	font-size: 30px;
+	transition: 0.5s;
+	background: white;
+	color: hotpink;
+	filter: grayscale(100%);
+}
+button:hover {
+	font-size: 40px;
+	animation: rainbow 1s infinite linear;
+}
+button.dark {
+	background: black;
+	color: hotpink;
+}
+.dark {
+	background: black;
+	color: white;
+}
+body, img {
+	transition: 0.5s;
+}
+div p {
+	font-size: 30px;
+	border: 3px lightgray solid;
+	border-radius: 12px;
+	width: 80vw;
+}
+#d1, #d2, #d3, #d4, #d5 {
+	position: relative;
+}
+div button {
+	position: absolute;
+	right: 0;
+	top: -10px;
+}
+h1, h3 {
+	text-align: left;
+}
+.reload {
+	background: transparent;
+}
+img.reload:hover {
+	animation: rotate 1s;
+}
+@keyframes rainbow {
+	from {filter: hue-rotate(0deg);}
+	to {filter: hue-rotate(360deg);}
+}
+h4 {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	text-align: right;
+	color: #8e8e8e;
+}
+#mute {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	text-align: left;
+}
+#dark {
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+	text-align: left;
+}
+a:not(.result) {
+	margin: 0;
+	color: hotpink;
+	filter: grayscale(100%);
+}
+a:hover {
+	animation: rainbow 1s infinite linear;
+}
+.result {
+	text-decoration: none;
+	color: black;
+	background: transparent;
+}
+.result.dark {
+	text-decoration: none;
+	color: white;
+}
