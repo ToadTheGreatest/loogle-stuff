@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title id="title">Loogle Reverse</title>
+    </head>
     <body>
         <input type="text" id="input">
         <button onclick="go();">Google It</button>
@@ -48,6 +51,7 @@
                 return output
             }
             function doit(x) {
+                document.getElementById("title").textContent = "Redirecting..."
                 var sentence = load(x);
                 if (!sentence) {
                     alert("Invalid save code");
@@ -56,7 +60,7 @@
                 }
                 var prompt = translate(sentence);
                 var url = "https://google.com/search?q=" + prompt;
-                window.open(url);
+                window.location.href = url;
                 return;
             }
             function go() {
