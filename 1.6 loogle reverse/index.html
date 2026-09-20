@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input type="text" id="input">
+        <button onclick="go();">Google It</button>
+        <script>
+            const layouts = ["oops i accidentally ...","whoops i accidentally ...","what if i accidentally ...","help i accidentally ...","i accidentally ...","i ... and didn't mean to","what if i accidentally ...","i ...","oh no i ...","i ... what do i do","what would happen if i ..."];
+            const verbs = ["burned ...","summoned ...","built ...","threw up ...","threw away ...","ate ...","drank ...","forgot the purpose of ...","set ... on fire","broke ...","streamed a picture of ... on twitch","ate ... in one bite","ordered ... at a restaurant","had a baby with ...","threw ... at the wall","married ...","sat on ...","farted on ...","laid on ...","made a deal with ...","went to the store with ...","tripped over ...","sang a lullaby to ...","screamed at ...","swore at ...","jumped on ...","sent a birthday card to ...","asked ... if they would be my valentine","asked ... out","kissed ...","bit ...","got rid of ...","walked on ...","stepped on ...","dyed ... green","gave ... a hug","sent ... a dm on discord","killed ...","examined ...'s house","read a book to ...","told ... that i hate them","caused ... to spontaneously disappear","told the grim reaper to kill ...","stuck my finger inside ... and can't get it out","called ... a meanie","bedazzled ...","melted ...","put ... into a burrito","swallowed ...","stared at ... for too long","touched ...","sniffed ...","danced with ... at the school dance","dropped a bomb on ...","painted a picture of ... that got into the news","sang karaoke with ... stuck in my throat","read a bedtime story to ...","erased ... with a pencil","drew on ...","hired ... as a cashier at walmart","sliced ... into pieces","gave ... the flu","sprayed ... all over the room","cut ... from the soccer team","squashed ...","changed ... into ...","gave ... the rights to ...","hid ... under ...","crashed into ...","included ... and ... on my shopping list","put ... in my cereal and milk","barfed on ...","told ... to kill ...","texted a picture of ... to ...","played the official theme song of ...","let down ...","gave up ... for ...","recycled ... because it's good for the environment","sacrificed ... to the gods","squished ...","scared ... away","made eye contact with ...","made it so ... is able to defy gravity","threw a party with ...","licked ...'s toenails","spoke japanese to ...","played chess with ...","dyed ... the color of ...","smiled at ... and it smiled back","reset ... to factory settings","punched a hole in ...","put a hole in my wall and filled it with ...","slapped ...","ran over ... with my car","messed up ...","found out what ... is","voted for ... for president","put ... in the blender","knocked on ...'s door","got outnumbered by clones of ...","dropped ... off the 13th floor","drop-kicked ...","coughed up ...","called ... on the telephone","helped ... destroy the world","made a documentary about ...","returned a book about ... to the library","turned in ... for my school art project","mailed ... to ...","gave ... the deed to my house","asked ai to recreate ...","3d-printed ...","stuck ... to the wall with duct tape","coated ... with sugar","dunked ... into a bucket of water","sent ... to brazil","drew a picture of ...","sent ... to infinity and beyond","buried ... in a pile of potatoes","threw a chair at ...","yeeted ... to canada","yeeted ... to cambodia","crashed out on ...","kept ... as a pet","dressed up as ... for halloween","bought ... for $1000 off amazon","dropped ... onto my nasty basement floor"];
+            const nouns = ["a lemon", "a jeep", "some shampoo", "elmo", "your mom", "my grandma", "my grandpa", "walterbottle iv", "potatorat", "the ussr", "a train", "an ikea shelf", "a snake", "an hp prodesk computer", "a microsd card", "an sd card", "a camera", "an entire grand piano", "a low taper fade", "mrbeast", "abraham lincoln", "my english teacher", "walter white", "a printer", "a 3d printer", "a .zip file", "an .html file", "a .jpg file", "a .png file", "a .pdf file", "an .mp3 file", "the number 3", "coldplay", "a fortnite skin", "some v-bucks", "fortnite battle pass", "the ground", "gordon ramsay", "the white house", "a google doc", "a powerpoint presentation", "the rizzler", "spiderman", "batman", "superman", "the wall", "the ceiling", "a stick", "a stick of deodorant", "chap-stick", "the concept of time", "a squishmallow", "a marshmallow", "outer space", "central america", "the world health organization", "the atlantic ocean", "a sesame seed", "a fidget spinner", "a minecraft dirt block", "super mario", "princess zelda", "my great-great-grandmother's gravestone", "a d20", "adam sandler", "my birth certificate", "my hair", "sonic the hedgehog", "8 gigabytes of ram", "george washington", "a washing machine", "a cybertruck", "my car", "the toilet", "my past life", "a zombie", "a ghost", "an email", "baldi", "a glue stick", "the flag of germany", "the cereal aisle at whole foods", "the laughing emoji", "elvis presley", "my femur", "my boogers", "an ipad", "my front door", "steve jobs", "a fork", "a bowl of ramen", "an atom of hydrogen", "a drop of water", "the bible", "my dentist", "my tears", "my dead uncle", "the grim reaper", "a soft taco","a vegetarian cookbook","the city pulse newspaper","my bad case of fungal meningitis","the ceo of loogle","rick astley","some peanut butter","a random guy at the store","my $1000 flatscreen tv","the washington monument","the devil","the declaration of independence","the constitution","the library of babel","the english language","an oddly-shaped cookie cutter","a heart-shaped cookie cutter","a slab of butter","a bowl of mashed potatoes","my elementary school playground","my grandma's homemade waffles","some chopsticks","my friend bob","the mona lisa","a bass guitar","a super yummy strawberry smoothie","a c-sharp minor seventh flat five chord","my friend's melodica","a wild bulbasaur","the skeletal system","the respiratory system","my mucus membrane","my local starbucks","my pet rat","some mouse poop","an ai-generated picture of ...","a box of reeses puffs","a 1000-piece jigsaw puzzle of ...","a cubic inch of solid uranium","a king-sized twix bar","macdonald middle school","an optical mouse","a wireless keyboard","a copy of brunswick pro bowling for nintendo wii","a playstation 8","a time-traveler from the year 3000","a can of bbq pringles","big ben","big bird","the world","duo the owl","the grand canyon","a deck of playing cards","yoshi","myself","a postcard from ...","a cat toy","a pair of 3d glasses","dwayne the rock johnson","a battery","a tube of toothpaste","a tuba","a deer","a raccoon","my infinitecraft save file","a sussy baka","albuquerque, new mexico","my cat's hairball","my left eyelid","steve harvey","the diddlycart","my new rug","my report card","the los angeles police department","a chocolate chip muffin","the fbi","the irs","my american express gold card","the month of january","a big bowl of sauerkraut","michigan state university","mojang studios","disney world","the letter s","a brand new pair of shoes","the sahara desert","a bunch of bananas","a nickel","jake from state farm","a big potato","the corn kid","a packet of activated carbon deodorizer","a can of whipped cream that weighs approximately 4.2 kilograms","a programmable led button module","a $25 mystery box i got off ebay","a piece of red bean mochi","a buttered biscuit","a gift card scammer from india","my long-lost twin brother","a seven-segmented display","rainbow road","the limited edition super mario bros. 35th anniversary magnet","an unborn child","my mom and dad","a url","ryan trahan","the windows xp default wallpaper","a can of cat food","my instagram profile pic","a small fish","the beach","jaidenanimations","a pair of bluetooth speakers that don't work","a slug","johnny johnny","the kirby and the forgotten land - nintendo switch 2 edition + star-crossed world game (releasing august 28, 2025 exclusively for the nintendo switch 2 system)","willy wonka","a 34-year-old from new jersey","modern-day rome","a 1:1 scale replica of ...","some moldy bread","jesus christ","a 5-foot cardboard cutout of ...","the year 2000","the percent symbol","one tablespoon of milk","a slice of pizza","a blue stress ball","a pack of haribo goldbears","danny devito","my grandpa's glockenspiel"];
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString)
+            const searchItem = urlParams.get("q")
+            if (searchItem) {
+                doit(searchItem)
+            }
+            function load(x) {
+                let loaded = "";
+                if (x == 0) {
+                    return "We're no strangers to love\nYou know the rules and so do I\nA full commitment's what I'm thinkin' of\nYou wouldn't get this from any other guy\nI just wanna tell you how I'm feeling\nGotta make you understand\nNever gonna give you up, never gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry, never gonna say goodbye\nNever gonna tell a lie and hurt you\nWe've known each other for so long\nYour heart's been aching, but you're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\nAnd if you ask me how I'm feeling\nDon't tell me you're too blind to see\nNever gonna give you up, never gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry, never gonna say goodbye\nNever gonna tell a lie and hurt you\nNever gonna give you up, never gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry, never gonna say goodbye\nNever gonna tell a lie and hurt you\nWe've known each other for so long\nYour heart's been aching, but you're too shy to say it\nInside, we both know what's been going on\nWe know the game and we're gonna play it\nI just wanna tell you how I'm feeling\nGotta make you understand\nNever gonna give you up, never gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry, never gonna say goodbye\nNever gonna tell a lie and hurt you\nNever gonna give you up, never gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry, never gonna say goodbye\nNever gonna tell a lie and hurt you\nNever gonna give you up, never gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry, never gonna say goodbye\nNever gonna tell a lie and hurt you";
+                }
+                if (x.substring(0, 3) != "006") {
+                    if (!confirm("This code was saved in a different version or isn't formatted right and may not work. Do you still want to continue?")) {
+                        loadable = false;
+                        return;
+                    }
+                }
+                aload = [];
+                for (let i = 0; i < x.length/3; i++) {
+                    aload.push(parseInt(x.substring(i*3, i*3+3), 36))
+                }
+                loaded += layouts[aload[1]];
+                loaded = loaded.replace("...",verbs[aload[2]]);
+                for (i = 3; i < aload.length; i++) {
+                    loaded = loaded.replace("...", nouns[aload[i]]);
+                }
+                return loaded;
+            }
+            function translate(string) {
+                var output = "";
+                Array.from(string).forEach(char => {
+                    if (accepted.includes(char)) {
+                        output += char;
+                    } else {
+                        output += "%" + char.charCodeAt(0).toString(16);
+                    }
+                });
+                return output
+            }
+            function doit(x) {
+                var sentence = load(l);
+                if (!sentence) {
+                    alert("Invalid save code");
+                    window.close(); // closes window
+                    return;
+                }
+                var prompt = translate(sentence);
+                var url = "https://google.com/search?q=" + prompt;
+                window.open(url);
+                return;
+            }
+            function go() {
+                var l = document.getElementById("input").value;
+                doit(l);
+            }
+        </script>
+    </body>
+</html>
