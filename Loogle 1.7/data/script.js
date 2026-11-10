@@ -8,6 +8,7 @@ let a3 = [];
 let a4 = [];
 let a5 = [];
 let f = [];
+let g = [];
 let keys = [];
 let mute = false;
 let secret = 0;
@@ -38,6 +39,7 @@ function nreplace(x, a) {
 		ret=ret.replace("...",nouns[a[i+3]]);
 	}
 	f.push(a);
+	g.push(ret)
 	return ret;
 }
 function gen(a) {
@@ -96,12 +98,26 @@ function start() {
 		new Audio("data/10.mp3").play();
 		alert("Your save code is: "+sformat(save(f[0])));
 	});
+	let d1ai = document.createElement("button");
+	d1ai.innerHTML = "ADVICE";
+	d1.appendChild(d1ai);
+	d1ai.addEventListener("click", () => {
+		new Audio("data/10.mp3").play();
+		sendAIprompt(g[0]);
+	});
 	let d2b = document.createElement("button");
 	d2b.innerHTML = "SAVE";
 	d2.appendChild(d2b)
 	d2b.addEventListener("click", () => {
 		new Audio("data/10.mp3").play();
 		alert("Your save code is: "+sformat(save(f[1])));
+	});
+	let d2ai = document.createElement("button");
+	d2ai.innerHTML = "ADVICE";
+	d2.appendChild(d2ai);
+	d2ai.addEventListener("click", () => {
+		new Audio("data/10.mp3").play();
+		sendAIprompt(g[1]);
 	});
 	let d3b = document.createElement("button");
 	d3b.innerHTML = "SAVE";
@@ -110,6 +126,13 @@ function start() {
 		new Audio("data/10.mp3").play();
 		alert("Your save code is: "+sformat(save(f[2])));
 	});
+	let d3ai = document.createElement("button");
+	d3ai.innerHTML = "ADVICE";
+	d3.appendChild(d3ai);
+	d3ai.addEventListener("click", () => {
+		new Audio("data/10.mp3").play();
+		sendAIprompt(g[2]);
+	});
 	let d4b = document.createElement("button");
 	d4b.innerHTML = "SAVE";
 	d4.appendChild(d4b)
@@ -117,12 +140,26 @@ function start() {
 		new Audio("data/10.mp3").play();
 		alert("Your save code is: "+sformat(save(f[3])));
 	});
+	let d4ai = document.createElement("button");
+	d4ai.innerHTML = "ADVICE";
+	d4.appendChild(d4ai);
+	d4ai.addEventListener("click", () => {
+		new Audio("data/10.mp3").play();
+		sendAIprompt(g[3]);
+	});
 	let d5b = document.createElement("button");
 	d5b.innerHTML = "SAVE";
 	d5.appendChild(d5b)
 	d5b.addEventListener("click", () => {
 		new Audio("data/10.mp3").play();
 		alert("Your save code is: "+sformat(save(f[4])));
+	});
+	let d5ai = document.createElement("button");
+	d5ai.innerHTML = "ADVICE";
+	d5.appendChild(d5ai);
+	d5ai.addEventListener("click", () => {
+		new Audio("data/10.mp3").play();
+		sendAIprompt(g[4]);
 	});
 	document.body.appendChild(document.createElement("br"));
 	let rbutton = document.createElement("div");
@@ -163,6 +200,7 @@ function reload() {
 	}
 	date.innerHTML="at "+(thing.getMonth()+1)+"/"+thing.getDate()+"/"+thing.getFullYear()+" "+hour+":"+minute+time;
 	f = [];
+	g = [];
 	let generated = gen(a1);
 	s1.innerHTML='<a href="https://google.com/search?q='+generated.replaceAll(" ","+")+'" class="result" target="_blank">'+generated+'</a>';
 	generated = gen(a2);
@@ -285,6 +323,51 @@ function scend(x,play) {
 			music[0].play();
 		}
 	},1500);
+}
+async function chat(prompt) {
+	if (prompt) {
+		history.push({ role: 'user', content: prompt });
+	}
+
+	try {
+		const response = await fetch('http://localhost:11434/api/chat', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				model: 'qwen3.5:0.8b',
+				messages: [
+					{
+						"role": "system",
+						"content": "You are an AI answerer hooked into a website. You wll get questions and you need to answer them in the silliest way possible. **Keep your answers medium length.**"
+					},
+					{
+						"role": "user",
+						"content": prompt
+					}
+				],
+				stream: false
+			})
+		});
+
+		const data = await response.json();
+
+		if (data.error) {
+			if (prompt) history.pop();
+			return { content: `Ollama Error: ${data.error}` };
+		}
+
+		if (data.message) {
+			return data.message;
+		}
+	} catch (err) {
+		console.error(err);
+		return { content: "Error connecting to Ollama server." };
+	}
+}
+function sendAIprompt(string) {
+	chat(string).then(r => {
+		alert(r)
+	})
 }
 document.body.addEventListener("keyup",(x) => {
 	keys.push(x.code);
