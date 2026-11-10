@@ -330,6 +330,7 @@ function scend(x,play) {
 	},1500);
 }
 async function chat(prompt) {
+	console.log(`Sending AI the prompt ${prompt}`)
 	try {
 		const response = await fetch('http://localhost:11434/api/chat', {
 			method: 'POST',
@@ -358,6 +359,7 @@ async function chat(prompt) {
 		}
 
 		if (data.message) {
+			console.log(`AI responded with ${data.message}`)
 			return data.message;
 		}
 	} catch (err) {
