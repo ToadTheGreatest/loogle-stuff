@@ -161,6 +161,11 @@ function start() {
 		new Audio("data/10.mp3").play();
 		sendAIprompt(g[4]);
 	});
+	d1ai.class = "advice";
+	d2ai.class = "advice";
+	d3ai.class = "advice";
+	d4ai.class = "advice";
+	d5ai.class = "advice";
 	document.body.appendChild(document.createElement("br"));
 	let rbutton = document.createElement("div");
 	rbutton.setAttribute("class","reload");
@@ -325,10 +330,6 @@ function scend(x,play) {
 	},1500);
 }
 async function chat(prompt) {
-	if (prompt) {
-		history.push({ role: 'user', content: prompt });
-	}
-
 	try {
 		const response = await fetch('http://localhost:11434/api/chat', {
 			method: 'POST',
